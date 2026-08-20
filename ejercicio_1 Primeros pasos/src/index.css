@@ -1,0 +1,147 @@
+/* ============================================================
+   INDEX.CSS — Estilos GLOBALES de la aplicación
+   Se importa en main.jsx, así que aplica a TODA la app.
+   ============================================================ */
+
+:root {
+  /* ---- Variables de color (modo claro, por defecto) ---- */
+  --text: #6b6375;        /* Color de texto normal (gris violáceo) */
+  --text-h: #08060d;      /* Color de texto para headings (casi negro) */
+  --bg: #fff;              /* Color de fondo de la página */
+  --border: #e5e4e7;      /* Color usado en bordes y separadores */
+  --code-bg: #f4f3ec;     /* Fondo para bloques <code> */
+  --accent: #aa3bff;      /* Color principal / de acento (violeta) */
+  --accent-bg: rgba(170, 59, 255, 0.1);      /* Fondo suave usando el acento con transparencia */
+  --accent-border: rgba(170, 59, 255, 0.5);  /* Borde suave usando el acento con transparencia */
+  --social-bg: rgba(244, 243, 236, 0.5);     /* Fondo para íconos/botones sociales */
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,     /* Sombra difusa grande */
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;      /* Sombra sutil chica, se suman las dos */
+
+  /* ---- Variables de tipografía ---- */
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;    /* Fuente para texto normal */
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif; /* Fuente para títulos */
+  --mono: ui-monospace, Consolas, monospace;            /* Fuente monoespaciada (código) */
+
+  /* ---- Estilos base aplicados a :root (heredados por toda la app) ---- */
+  font: 18px/145% var(--sans);   /* Shorthand: tamaño 18px, interlineado 145%, fuente sans */
+  letter-spacing: 0.18px;        /* Separación entre letras */
+  color-scheme: light dark;      /* Le avisa al navegador que la página soporta ambos modos */
+  color: var(--text);            /* Color de texto por defecto */
+  background: var(--bg);         /* Color de fondo por defecto */
+  font-synthesis: none;                 /* Evita que el navegador "invente" negrita/itálica falsas */
+  text-rendering: optimizeLegibility;   /* Prioriza legibilidad al renderizar el texto */
+  -webkit-font-smoothing: antialiased;  /* Suaviza el anti-aliasing de fuentes en Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale;   /* Suaviza el anti-aliasing de fuentes en Firefox/macOS */
+
+  /* Responsive: en pantallas de hasta 1024px (tablets/celulares) */
+  @media (max-width: 1024px) {
+    font-size: 16px;   /* Reduce el tamaño de fuente base */
+  }
+}
+
+/* ============================================================
+   MODO OSCURO
+   Se activa automáticamente si el sistema operativo del usuario
+   tiene configurado el modo oscuro. No requiere JS ni botón.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Redefine las mismas variables de arriba con una paleta oscura */
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  /* Invierte los colores de íconos dentro de un elemento #social */
+  /* NOTA: #social no existe en los componentes actuales del proyecto,
+     así que esta regla no tiene ningún efecto visible por ahora */
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* ============================================================
+   ESTILOS BASE DEL DOCUMENTO
+   ============================================================ */
+
+body {
+  margin: 0;   /* Quita el margen por defecto que el navegador le pone al <body> */
+}
+
+#root {
+  /* Este es el <div id="root"> definido en index.html,
+     donde React monta toda la aplicación */
+  width: 1126px;              /* Ancho fijo deseado del contenedor principal */
+  max-width: 100%;            /* Pero nunca más ancho que la pantalla (responsive) */
+  margin: 0 auto;             /* Centra el contenedor horizontalmente */
+  text-align: center;         /* Centra el texto de todo el contenido interno */
+  border-inline: 1px solid var(--border);  /* Borde vertical izquierdo y derecho */
+  min-height: 100svh;         /* Alto mínimo = 100% del viewport visible (small viewport height) */
+  display: flex;
+  flex-direction: column;     /* Apila los elementos hijos verticalmente */
+  box-sizing: border-box;     /* padding y border no se suman al width total */
+}
+
+/* ---- Tipografía de encabezados ---- */
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;         /* Peso semi-bold */
+  color: var(--text-h);     /* Usa el color "fuerte" reservado para títulos */
+}
+
+h1 {
+  /* Estilo usado por <Encabezado /> */
+  font-size: 56px;
+  letter-spacing: -1.68px;  /* Junta ligeramente las letras (look más moderno) */
+  margin: 32px 0;
+
+  @media (max-width: 1024px) {
+    font-size: 36px;        /* Título más chico en mobile */
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  /* NOTA: actualmente ningún componente usa <h2>, esta regla no se aplica a nada */
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+p {
+  /* Estilo usado por <CuerpoPosteo /> */
+  margin: 0;   /* Quita el margen por defecto del párrafo */
+}
+
+/* ---- Estilo tipo "código" ---- */
+code,
+.counter {
+  /* NOTA: ni <code> ni .counter se usan en los componentes actuales */
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

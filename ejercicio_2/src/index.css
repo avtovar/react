@@ -1,0 +1,28 @@
+/* ============================================================
+   INDEX.CSS — Estilos GLOBALES de la aplicación
+   Se importa en main.jsx, así que aplica a TODA la app.
+   CSS = "Cascading Style Sheets": define colores, fuentes,
+   tamaños y distribución de los elementos HTML.
+   ============================================================ */
+
+* {
+  /* ---- Reset básico: normaliza estilos que el navegador pone por defecto ---- */
+  margin: 0;              /* Quita los márgenes por defecto de todos los elementos */
+  padding: 0;             /* Quita los paddings (relleno interno) por defecto */
+  box-sizing: border-box; /* padding y border no se suman al ancho total del elemento */
+}
+
+body {
+  /* ---- Estilos para el <body> completo ---- */
+  font-family: system-ui, -apple-system, sans-serif;  /* Familia de fuente legible en cualquier sistema */
+  background-color: #131314;   /* Fondo gris claro de la página */
+  color: #3e6191;              /* Color de texto (gris oscuro, casi negro) */
+  padding: 2rem;               /* Espacio interior de 32px alrededor del contenido */
+  text-align: center;           /* Centra el título horizontalmente */
+}
+
+h1 {
+  /* ---- Estilo del título "Lista de Asistentes" (lo renderiza App.jsx) ---- */
+  text-align: center;     /* Centra el título horizontalmente */
+  margin-bottom: 2rem;    /* Espacio de 32px debajo del título, antes de la lista */
+}

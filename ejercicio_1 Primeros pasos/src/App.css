@@ -1,0 +1,213 @@
+/* ============================================================
+   APP.CSS — Estilos del template original de Vite + React
+   ⚠️ IMPORTANTE: este archivo NO está importado en App.jsx
+   ni en ningún otro archivo del proyecto. Por lo tanto,
+   NADA de lo que está acá se aplica actualmente a la app.
+   Se documenta igual por si se quiere reutilizar o reactivar.
+   ============================================================ */
+
+/* ---- Botón contador (típico del template default de Vite) ---- */
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);              /* Usa la variable de acento definida en index.css */
+  background: var(--accent-bg);      /* Fondo suave del acento */
+  border: 2px solid transparent;     /* Borde invisible por defecto (reserva espacio para el hover) */
+  transition: border-color 0.3s;     /* Anima el cambio de color del borde */
+  margin-bottom: 24px;
+
+  &:hover {
+    /* CSS anidado nativo: equivale a ".counter:hover" */
+    border-color: var(--accent-border);  /* Al pasar el mouse, aparece el borde de color */
+  }
+  &:focus-visible {
+    /* Equivale a ".counter:focus-visible" — accesibilidad para navegación con teclado */
+    outline: 2px solid var(--accent);    /* Contorno visible al enfocar con Tab */
+    outline-offset: 2px;                 /* Separa el contorno del borde del botón */
+  }
+}
+
+/* ---- Logos animados en 3D (React + Vite superpuestos) ---- */
+.hero {
+  position: relative;   /* Contexto de posicionamiento para los hijos absolutos */
+
+  .base,
+  .framework,
+  .vite {
+    /* Equivale a ".hero .base", ".hero .framework", ".hero .vite" */
+    inset-inline: 0;   /* Atajo de "left: 0; right: 0;" → centra horizontalmente */
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;         /* Capa de fondo (imagen base, ej. el ícono de React) */
+  }
+
+  .framework,
+  .vite {
+    position: absolute;  /* Se superponen encima de .base */
+  }
+
+  .framework {
+    z-index: 1;           /* Va por encima de .base */
+    top: 34px;
+    height: 28px;
+    /* Rotación 3D compleja para dar efecto de "logo flotando en perspectiva" */
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+/* ---- Contenedor centrado vertical y horizontalmente ---- */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;                 /* Espacio entre elementos hijos */
+  place-content: center;     /* Centra el contenido en el eje principal (vertical) */
+  place-items: center;       /* Centra los ítems en el eje cruzado (horizontal) */
+  flex-grow: 1;              /* Crece para ocupar todo el espacio disponible */
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+/* ---- Sección "próximos pasos" en dos columnas ---- */
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);   /* Línea divisoria arriba de la sección */
+  text-align: left;
+
+  & > div {
+    /* Equivale a "#next-steps > div" — cada columna directa */
+    flex: 1 1 0;    /* Cada columna crece/encoge igual, partiendo de 0 */
+    padding: 32px;
+
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    /* Equivale a "#next-steps .icon" */
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;   /* En mobile, las columnas pasan a apilarse verticalmente */
+    text-align: center;
+  }
+}
+
+/* ---- Separador vertical entre las columnas de #next-steps ---- */
+#docs {
+  border-right: 1px solid var(--border);   /* Línea divisoria a la derecha */
+
+  @media (max-width: 1024px) {
+    border-right: none;                      /* En mobile no hay columnas lado a lado... */
+    border-bottom: 1px solid var(--border);  /* ...así que el separador pasa a ser horizontal */
+  }
+}
+
+/* ---- Lista de íconos/enlaces sociales ---- */
+#next-steps ul {
+  list-style: none;   /* Quita los bullets (puntitos) por defecto de la lista */
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    /* Equivale a "#next-steps ul .logo" */
+    height: 18px;
+  }
+
+  a {
+    /* Equivale a "#next-steps ul a" — cada enlace/botón social */
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;         /* Quita el subrayado típico de los links */
+    transition: box-shadow 0.3s;   /* Anima la aparición de la sombra */
+
+    &:hover {
+      /* Equivale a "#next-steps ul a:hover" */
+      box-shadow: var(--shadow);   /* Sombra al pasar el mouse por encima */
+    }
+    .button-icon {
+      /* Equivale a "#next-steps ul a .button-icon" */
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;           /* Permite que los íconos pasen a la siguiente fila */
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);  /* Cada ítem ocupa ~mitad del ancho → 2 por fila */
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+/* ---- Espaciador vacío entre secciones ---- */
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);   /* Línea divisoria arriba del espaciador */
+
+  @media (max-width: 1024px) {
+    height: 48px;   /* Espaciador más chico en mobile */
+  }
+}
+
+/* ---- Decoración de flechitas/triángulos en los bordes ---- */
+.ticks {
+  position: relative;   /* Contexto de posicionamiento para los pseudo-elementos */
+  width: 100%;
+
+  &::before,
+  &::after {
+    /* Pseudo-elementos: crean contenido "falso" antes y después del elemento */
+    content: '';           /* Vacío: solo se usan por su forma/color, no tienen texto */
+    position: absolute;
+    top: -4.5px;            /* Los sube un poco para que sobresalgan del borde superior */
+    border: 5px solid transparent;   /* Base transparente: la forma se logra coloreando solo un lado */
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);   /* Solo el lado izquierdo tiene color → forma de triángulo */
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);  /* Solo el lado derecho tiene color → triángulo opuesto */
+  }
+}
