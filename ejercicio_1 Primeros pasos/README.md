@@ -1,16 +1,49 @@
-# React + Vite
+# Ejercicio 1 — Primeros pasos con React
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación de React + Vite que simula un posteo en una red social, dividido en componentes pequeños y reutilizables.
 
-Currently, two official plugins are available:
+## ¿Qué hace?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Muestra un posteo con tres partes: encabezado, cuerpo y pie.
+- Cada parte es un **componente** separado, para aplicar el principio de "dividir para conquistar".
+- El componente raíz `App` agrupa a los tres hijos dentro de un fragmento `<>...</>` (sin crear un `<div>` extra).
 
-## React Compiler
+## Estructura del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+ejercicio_1 Primeros pasos/
+├── index.html               → HTML base con el <div id="root">
+├── src/
+│   ├── main.jsx             → Punto de entrada: monta React en el #root
+│   ├── App.jsx              → Componente raíz: agrupa los 3 hijos
+│   ├── Encabezado.jsx       → Componente hijo: título del posteo (h1)
+│   ├── CuerpoPosteo.jsx     → Componente hijo: contenido del posteo (p)
+│   ├── PieDePosteo.jsx      → Componente hijo: pie/footer del posteo
+│   ├── index.css            → Estilos globales (variables, modo oscuro, tipografía)
+│   └── App.css              → Estilos del template original (no importado actualmente)
+└── package.json             → Dependencias y scripts
+```
 
-## Expanding the Oxlint configuration
+## Cómo correrlo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install    # instala las dependencias (solo la primera vez)
+npm run dev    # levanta el servidor de desarrollo
+```
+
+Abrí la URL que muestra la consola (por defecto http://localhost:5173).
+
+## Scripts disponibles
+
+| Comando          | Qué hacer                          |
+| ---------------- | ---------------------------------- |
+| `npm run dev`    | Servidor de desarrollo con HMR     |
+| `npm run build`  | Genera la versión de producción    |
+| `npm run lint`   | Verifica errores con Oxlint        |
+| `npm run preview`| Previsualiza el build              |
+
+## Tecnologías
+
+- [React 19](https://react.dev)
+- [Vite](https://vite.dev)
+- [Oxlint](https://oxc.rs)

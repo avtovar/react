@@ -1,9 +1,18 @@
 import './style.css'
+// ↑ importa los estilos globales: hace que Vite los aplique a toda la página
 import javascriptLogo from './assets/javascript.svg'
+// ↑ importa la imagen como módulo: Vite devuelve la URL lista para usar
 import viteLogo from './assets/vite.svg'
+// ↑ lo mismo para el logo de Vite
 import heroImg from './assets/hero.png'
+// ↑ y para la imagen de fondo del hero
 import { setupCounter } from './counter.js'
+// ↑ importa la función exportada por counter.js (la usamos más abajo)
 
+// document es el navegador: querySelector busca el primer elemento que matchee
+// ese selector CSS (el <div id="app"> de index.html). innerHTML le inyecta un
+// string de HTML; como va entre backticks (` `) es un "template literal" y puede
+// interpolar variables con ${...}.
 document.querySelector('#app').innerHTML = `
 <section id="center">
   <div class="hero">
@@ -56,5 +65,9 @@ document.querySelector('#app').innerHTML = `
 <div class="ticks"></div>
 <section id="spacer"></section>
 `
+// ↑ la sección #center tiene el logo, título y el botón del contador (inicialmente
+// vacío: su texto lo rellena setupCounter()). #next-steps son los enlaces de la
+// comunidad. Las etiquetas ${...} inyectan las URLs de las imágenes importadas.
 
 setupCounter(document.querySelector('#counter'))
+// ↑ le pasa el botón a setupCounter, que se encarga de su texto y de sumar clics

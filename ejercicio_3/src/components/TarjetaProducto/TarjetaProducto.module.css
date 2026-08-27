@@ -1,0 +1,96 @@
+/* ============================================================
+   TARJETAPRODUCTO.MODULE.CSS — CSS Module del componente
+   TarjetaProducto.
+
+   IMPORTANTE: al ser un CSS Module (.module.css), React genera
+   nombres de clase ÚNICOS para cada selector automáticamente
+   (ej: ".tarjeta" → "._tarjeta_1x3y2_1"). Así los estilos de
+   este componente quedan ENCAPSULADOS y NO afectan ni son
+   afectados por otros componentes de la app.
+
+   Se usa con: import styles from './TarjetaProducto.module.css'
+               className={styles.tarjeta}
+   ============================================================ */
+
+/* ---- Carta / tarjeta del producto ---- */
+.tarjeta {
+  display: flex;
+  flex-direction: column;   /* Imagen arriba, info abajo */
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;         /* Mantiene la imagen dentro del borde redondeado */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease; /* Animación al pasar el mouse */
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);     /* La tarjeta "flota" hacia arriba */
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-fuerte);
+}
+
+/* ---- Contenedor cuadrado de la imagen ---- */
+.imagenContenedor {
+  aspect-ratio: 1;         /* Alto = ancho → cuadrado perfecto */
+  overflow: hidden;        /* Oculta el resto al hacer zoom en la imagen */
+  background: var(--superficie-elevada);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Recorta la imagen para llenar sin deformar */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.06);  /* Zoom suave de la foto al hacer hover */
+}
+
+/* ---- Bloque de información (nombre, precio, botón) ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  flex: 1;                 /* Ocupa el resto de la altura de la tarjeta */
+}
+
+.nombre {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.precio {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--acento-claro);   /* Precio en azul claro para destacarlo */
+}
+
+/* ---- Botón "Agregar al carrito" ---- */
+.boton {
+  margin-top: auto;        /* Se empuja hacia abajo: alinea todo en la base */
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--acento);   /* Azul eléctrico principal */
+  color: #fff;
+  font: inherit;           /* Hereda la fuente de la página */
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.boton:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);  /* "Halo" suave alrededor */
+}

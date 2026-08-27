@@ -1,36 +1,57 @@
+/* ============================================================
+   index.css
+   Estilos globales de la app. Se importa en src/main.jsx y por
+   eso aplica a TODO el proyecto (no a una sección puntual).
+   Aquí se definen las variables de color/tipografía (:root) y
+   los estilos base: body, #root, títulos y código.
+   ============================================================ */
+
 :root {
+  /* ↑ :root = el elemento raíz (<html>); define variables CSS y estilos base */
   --text: #6b6375;
+  /* ↑ variable: color del texto normal */
   --text-h: #08060d;
+  /* ↑ variable: color de los títulos (h1, h2) */
   --bg: #fff;
+  /* ↑ color de fondo de la página (modo claro) */
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
+  /* ↑ color de acento (púrpura): botón, enlaces y focus */
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* ↑ sombra suave de dos capas para dar profundidad sin costa dura */
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+  /* ↑ variables de tipografía: se reutilizan en body, títulos y código */
 
   font: 18px/145% var(--sans);
+  /* ↑ tamaño (18px) y altura de línea (145%) con la tipografía sans */
   letter-spacing: 0.18px;
   color-scheme: light dark;
+  /* ↑ le avisa al navegador que la página soporta modo claro y oscuro */
   color: var(--text);
   background: var(--bg);
+  /* ↑ aplica los colores base a toda la página */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* ↑ ajustes finos para que las letras se vean nítidas */
 
   @media (max-width: 1024px) {
+    /* ↑ media query: en pantallas de 1024px o menos baja el tamaño de letra */
     font-size: 16px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+  /* ↑ si el sistema está en modo oscuro, reescribe las variables de color */
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
@@ -47,14 +68,17 @@
 
   #social .button-icon {
     filter: invert(1) brightness(2);
+    /* ↑ invierte los iconos claros para que se vean en fondo oscuro */
   }
 }
 
 body {
   margin: 0;
+  /* ↑ saca el margen por defecto para que la página ocupe todo el ancho */
 }
 
 #root {
+  /* ↑ el div donde React monta la app; centra todo el contenido */
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
@@ -71,6 +95,7 @@ h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
+  /* ↑ títulos con su tipografía y su color más oscuro */
 }
 
 h1 {
@@ -78,6 +103,7 @@ h1 {
   letter-spacing: -1.68px;
   margin: 32px 0;
   @media (max-width: 1024px) {
+    /* ↑ en pantallas chicas achica el título principal */
     font-size: 36px;
     margin: 20px 0;
   }
@@ -97,6 +123,7 @@ p {
 
 code,
 .counter {
+  /* ↑ comparten tipografía monoespaciada (código y botón contador) */
   font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
@@ -108,4 +135,5 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+  /* ↑ el código se ve como una "cajita" con fondo propio */
 }

@@ -1,36 +1,49 @@
 :root {
+  /* ↑ :root = el elemento raíz (<html>); define variables CSS y estilos base de toda la página */
   --text: #6b6375;
+  /* ↑ variable de color para el texto normal */
   --text-h: #08060d;
+  /* ↑ variable de color para los títulos (h1, h2) */
   --bg: #fff;
+  /* ↑ color de fondo de la página (modo claro) */
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
+  /* ↑ color de acento (púrpura): botón, enlaces y focus */
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* ↑ sombra suave: dos capas para dar profundidad sin costa dura */
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+  /* ↑ variables de tipografía: sin fuente serif, se reutilizan en body, títulos y código */
 
   font: 18px/145% var(--sans);
+  /* ↑ tamaño (18px) y altura de línea (145%) con la tipografía sans */
   letter-spacing: 0.18px;
   color-scheme: light dark;
+  /* ↑ le avisa al navegador que la página soporta modo claro y oscuro */
   color: var(--text);
   background: var(--bg);
+  /* ↑ aplica los colores base a toda la página */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* ↑ ajustes finos para que las letras se vean nítidas */
 
   @media (max-width: 1024px) {
+    /* ↑ media query: si la pantalla mide 1024px o menos, baja el tamaño de letra */
     font-size: 16px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+  /* ↑ si el sistema está en modo oscuro, reescribe las variables de color */
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
@@ -47,11 +60,13 @@
 
   #social .button-icon {
     filter: invert(1) brightness(2);
+    /* ↑ invierte los iconos claros para que se vean en fondo oscuro */
   }
 }
 
 body {
   margin: 0;
+  /* ↑ saca el margen por defecto para que la página ocupe todo el ancho */
 }
 
 h1,
@@ -59,6 +74,7 @@ h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
+  /* ↑ títulos con su tipografía y su color más oscuro */
 }
 
 h1 {
@@ -66,6 +82,7 @@ h1 {
   letter-spacing: -1.68px;
   margin: 32px 0;
   @media (max-width: 1024px) {
+    /* ↑ en pantallas chicas achica el título principal */
     font-size: 36px;
     margin: 20px 0;
   }
@@ -85,6 +102,7 @@ p {
 
 code,
 .counter {
+  /* ↑ comparten estilo de tipografía monoespaciada (para código y botón) */
   font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
@@ -96,6 +114,7 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+  /* ↑ el código se ve como una "cajita" con fondo propio */
 }
 
 .counter {
@@ -106,18 +125,22 @@ code {
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
+  /* ↑ el cambio de borde es con animación suave (0.3s) */
   margin-bottom: 24px;
 
   &:hover {
     border-color: var(--accent-border);
+    /* ↑ al pasar el mouse se dibuja el borde de acento */
   }
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+    /* ↑ anillo de acento para accesibilidad con teclado */
   }
 }
 
 .hero {
+  /* ↑ contenedor del logo: con position:relative los hijos absolutos se posicionan respecto a él */
   position: relative;
 
   .base,
@@ -125,17 +148,20 @@ code {
   .vite {
     inset-inline: 0;
     margin: 0 auto;
+    /* ↑ centra horizontalmente (inset-inline:0 + auto) */
   }
 
   .base {
     width: 170px;
     position: relative;
     z-index: 0;
+    /* ↑ imagen de fondo: z-index 0 queda debajo */
   }
 
   .framework,
   .vite {
     position: absolute;
+    /* ↑ se posicionan sobre el hero, libremente */
   }
 
   .framework {
@@ -144,6 +170,7 @@ code {
     height: 28px;
     transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
       scale(1.4);
+    /* ↑ rotación 3D para que el logo "flote" sobre la lámina */
   }
 
   .vite {
@@ -157,6 +184,7 @@ code {
 }
 
 #app {
+  /* ↑ estilos del div #app inyectado por main.js; centra el contenido */
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
@@ -169,6 +197,7 @@ code {
 }
 
 #center {
+  /* ↑ sección principal: apila y centra el logo, título y botón */
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -183,11 +212,13 @@ code {
 }
 
 #next-steps {
+  /* ↑ zona de enlaces: dos columnas separadas por borde */
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
 
   & > div {
+    /* ↑ cada hijo directo (docs y social) ocupa la mitad */
     flex: 1 1 0;
     padding: 32px;
     @media (max-width: 1024px) {
@@ -204,6 +235,7 @@ code {
   @media (max-width: 1024px) {
     flex-direction: column;
     text-align: center;
+    /* ↑ en pantalla chica, se apilan verticalmente */
   }
 }
 
@@ -217,6 +249,7 @@ code {
 }
 
 #next-steps ul {
+  /* ↑ lista de enlaces con botones propios */
   list-style: none;
   padding: 0;
   display: flex;
@@ -228,6 +261,7 @@ code {
   }
 
   a {
+    /* ↑ cada link se ve como un botón */
     color: var(--text-h);
     font-size: 16px;
     border-radius: 6px;
@@ -241,6 +275,7 @@ code {
 
     &:hover {
       box-shadow: var(--shadow);
+      /* ↑ al hover aparece la sombra para indicar que es clickeable */
     }
     .button-icon {
       height: 18px;
@@ -274,11 +309,13 @@ code {
 }
 
 .ticks {
+  /* ↑ pequeños "dientes" en los bordes del app */
   position: relative;
   width: 100%;
 
   &::before,
   &::after {
+    /* ↑ pseudoelementos: dibujan triángulos generados por CSS, sin imágenes */
     content: '';
     position: absolute;
     top: -4.5px;

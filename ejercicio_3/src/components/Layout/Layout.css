@@ -1,0 +1,147 @@
+/* ============================================================
+   LAYOUT.CSS — Estilos del Layout (Header, nav, main y Footer)
+   Se importa en Layout.jsx, que es el "esqueleto" de la página.
+   Usa las variables de color definidas en index.css.
+   ============================================================ */
+
+/* ---- Contenedor general de la página ---- */
+.layout {
+  display: flex;
+  flex-direction: column;  /* Apila: Header (arriba), main (centro), Footer (abajo) */
+  min-height: 100vh;       /* Ocupa toda la altura del viewport */
+}
+
+/* ---- Contenedor centrado de ancho máximo ---- */
+.container {
+  width: min(1120px, 100% - 2rem);
+  /* ↑ min(): el ancho es 1120px o el 100% menos 2rem, lo que sea menor */
+  margin-inline: auto;      /* Centra el contenedor horizontalmente */
+}
+
+/* ---- Header ---- */
+.header {
+  position: sticky;      /* Se "pega" arriba al hacer scroll */
+  top: 0;
+  z-index: 10;           /* Por encima del resto del contenido */
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);  /* Línea divisoria inferior */
+  box-shadow: var(--sombra);
+}
+
+.header__contenido {
+  display: flex;              /* Logo a la izquierda, nav a la derecha */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;        /* Padding vertical de 16px */
+}
+
+/* ---- Logo / marca ---- */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--texto);
+  text-decoration: none;      /* Quita el subrayado del enlace */
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.marca__logo {
+  width: 32px;
+  height: 32px;
+  fill: var(--acento);         /* Color azul del rayo */
+  filter: drop-shadow(0 0 8px var(--acento-brillante));  /* Brillo cian */
+}
+
+.marca__nombre span {
+  color: var(--acento);        /* "Nova" resaltada en azul */
+}
+
+/* ---- Barra de navegación ---- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;             /* Los enlaces pueden ocupar 2 líneas */
+}
+
+.nav__enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;        /* Borde totalmente redondeado ("pill") */
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;  /* Animación suave al pasar el mouse */
+}
+
+.nav__enlace:hover {
+  color: var(--texto);
+  background: var(--superficie-elevada);  /* Fondo más claro al hacer hover */
+}
+
+.nav__enlace--activo {
+  /* ↑ Modificador: el enlace de la sección actual */
+  color: var(--acento-claro);
+  background: var(--acento-fondo);        /* Fondo azul suave */
+}
+
+.nav__enlace svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;   /* El ícono toma el color del texto del enlace */
+}
+
+.nav__enlace--carrito {
+  border: 1px solid var(--acento-borde);  /* Borde azulado para destacarlo */
+}
+
+/* ---- Contenido principal ---- */
+.main {
+  flex: 1;               /* Se expande para ocupar todo el espacio libre,
+                            empujando así al Footer hacia abajo */
+  padding-block: 3rem;
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--superficie);
+  border-top: 1px solid var(--borde);
+  padding-block: 1.5rem;
+}
+
+.footer__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__texto {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ---- Responsive: en celulares todo se apila y centra ---- */
+@media (max-width: 640px) {
+  .header__contenido {
+    flex-direction: column;   /* Logo arriba y nav debajo */
+    align-items: stretch;
+  }
+
+  .nav {
+    justify-content: center;  /* Nav centrada */
+  }
+
+  .footer__contenido {
+    justify-content: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,86 @@
+/* ============================================================
+   APP.CSS — Estilos de la SECCIÓN principal (se importa en App.jsx)
+   Acá se estiliza el hero, el encabezado del catálogo y el grid
+   que ordena las tarjetas de producto. Se usan flexbox y grid
+   para que la página se vea atractiva y organizada.
+   ============================================================ */
+
+/* ---- Hero: presentación de la tienda ---- */
+.hero {
+  text-align: center;      /* Centra el contenido horizontalmente */
+  padding: 2rem 0 3rem;    /* Espacio interior: 32px arriba, 48px abajo */
+}
+
+.hero__titulo {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  /* ↑ clamp() = tamaño fluido: nunca menos de 2rem ni más de 3.2rem */
+  font-weight: 800;
+
+  /* ↓ Degradado de texto: pasa de blanco a azul claro y a cian */
+  background: linear-gradient(
+    90deg,
+    var(--texto),
+    var(--acento-claro) 50%,
+    var(--acento-brillante)
+  );
+  -webkit-background-clip: text;  /* Recorta el fondo al contorno del texto */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* El texto muestra el degradado */
+}
+
+.hero__descripcion {
+  margin: 0 auto;
+  max-width: 54ch;   /* Largo de línea cómodo para leer (54 caracteres) */
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+}
+
+/* ---- Catálogo ---- */
+.catalogo {
+  padding-block: 1rem;   /* Padding vertical de 16px */
+}
+
+.catalogo__encabezado {
+  display: flex;              /* Flex para alinear título y contador */
+  align-items: baseline;      /* Alinea por la línea base del texto */
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;            /* En mobile, el contador baja de línea */
+  margin-bottom: 1.5rem;
+}
+
+.catalogo__titulo {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.catalogo__contador {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ---- Grid de productos: organiza las TarjetaProducto ---- */
+.grid {
+  display: grid;
+  /* ↑ CSS Grid: distribución en cuadrícula más potente que flexbox */
+  grid-template-columns: repeat(3, 1fr);
+  /* ↑ 3 columnas de ancho igual (1fr = reparte el espacio parejo) */
+  gap: 1.5rem;             /* Separación entre tarjetas */
+}
+
+/* ---- Responsive: menos columnas en pantallas chicas ---- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas en tablets */
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;             /* 1 columna en celulares */
+  }
+}

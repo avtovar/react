@@ -1,4 +1,13 @@
+/* ============================================================
+   App.css
+   Estilos del layout del componente App.jsx. Se importa desde
+   src/App.jsx y por eso sus reglas (con las variables de
+   index.css) dan forma a esta sección de la página: el hero,
+   el botón contador y los enlaces de la comunidad.
+   ============================================================ */
+
 .counter {
+  /* ↑ estilo del botón del contador (botón de la clase .counter de App.jsx) */
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
@@ -6,18 +15,22 @@
   background: var(--accent-bg);
   border: 2px solid transparent;
   transition: border-color 0.3s;
+  /* ↑ el cambio de borde es con animación suave (0.3s) */
   margin-bottom: 24px;
 
   &:hover {
     border-color: var(--accent-border);
+    /* ↑ al pasar el mouse se dibuja el borde de acento */
   }
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+    /* ↑ anillo de acento para accesibilidad con teclado */
   }
 }
 
 .hero {
+  /* ↑ contenedor del logo: con position:relative los hijos absolutos se posicionan respecto a él */
   position: relative;
 
   .base,
@@ -25,17 +38,20 @@
   .vite {
     inset-inline: 0;
     margin: 0 auto;
+    /* ↑ centra horizontalmente (inset-inline:0 + auto) */
   }
 
   .base {
     width: 170px;
     position: relative;
     z-index: 0;
+    /* ↑ imagen de fondo: z-index 0 queda debajo */
   }
 
   .framework,
   .vite {
     position: absolute;
+    /* ↑ se posicionan sobre el hero, libremente */
   }
 
   .framework {
@@ -44,6 +60,7 @@
     height: 28px;
     transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
       scale(1.4);
+    /* ↑ rotación 3D para que el logo React "flote" sobre la lámina */
   }
 
   .vite {
@@ -53,10 +70,12 @@
     width: auto;
     transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
       scale(0.8);
+    /* ↑ el logo de Vite queda debajo y más pequeño */
   }
 }
 
 #center {
+  /* ↑ sección principal (id="center" en App.jsx): apila y centra logo, título y botón */
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -71,11 +90,13 @@
 }
 
 #next-steps {
+  /* ↑ zona de enlaces (id="next-steps"): dos columnas separadas por borde */
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
 
   & > div {
+    /* ↑ cada hijo directo (docs y social) ocupa la mitad */
     flex: 1 1 0;
     padding: 32px;
     @media (max-width: 1024px) {
@@ -92,6 +113,7 @@
   @media (max-width: 1024px) {
     flex-direction: column;
     text-align: center;
+    /* ↑ en pantalla chica se apilan verticalmente */
   }
 }
 
@@ -105,6 +127,7 @@
 }
 
 #next-steps ul {
+  /* ↑ lista de enlaces, cada uno se ve como un botón */
   list-style: none;
   padding: 0;
   display: flex;
@@ -129,6 +152,7 @@
 
     &:hover {
       box-shadow: var(--shadow);
+      /* ↑ al hover aparece la sombra para indicar que es clickeable */
     }
     .button-icon {
       height: 18px;
@@ -162,11 +186,13 @@
 }
 
 .ticks {
+  /* ↑ pequeños "dientes" en los bordes de la app */
   position: relative;
   width: 100%;
 
   &::before,
   &::after {
+    /* ↑ pseudoelementos: dibujan triángulos generados por CSS, sin imágenes */
     content: '';
     position: absolute;
     top: -4.5px;
