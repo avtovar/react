@@ -1,0 +1,39 @@
+# ============================================================
+# .gitignore — proyecto react
+# Archivos que NUNCA se suben al repositorio de GitHub.
+# ============================================================
+
+# Carpeta privada: todo lo que se coloque acá NO se sube al repo
+no_subir/
+
+# Dependencias instaladas (se regeneran con npm install / pnpm install)
+node_modules/
+dist/
+
+# Variables de entorno y archivos de claves/secretos
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials.json
+serviceAccountKey.json
+
+# Archivos de configuración con credenciales
+*.local
+*.local.json
+
+# Logs y temporales
+*.log
+npm-debug.log*
+.DS_Store
+
+# Archivos de editor / sistema
+.vscode/
+.idea/
+.vscode-server/
+Thumbs.db
