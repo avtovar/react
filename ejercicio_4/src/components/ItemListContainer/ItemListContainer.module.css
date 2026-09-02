@@ -1,0 +1,35 @@
+/* ============================================================
+   ITEMLISTCONTAINER.MODULE.CSS — CSS Module del componente
+   ItemListContainer (el "Cerebro" / contenedor).
+
+   IMPORTANTE: al ser un CSS Module (.module.css), React genera
+   nombres de clase ÚNICOS para cada selector automáticamente.
+   Así los estilos de este componente quedan ENCAPSULADOS y NO
+   afectan ni son afectados por otros componentes de la app.
+
+   Se usa con: import styles from './ItemListContainer.module.css'
+               className={styles.seccion}
+   ============================================================ */
+
+/* ---- Sección que agrupa el subtítulo y las tarjetas ---- */
+.seccion {
+  padding-block: 1rem;   /* Padding vertical de 16px */
+}
+
+/* ---- Subtítulo de la sección ---- */
+.subtitulo {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+/* ---- Contenedor flex que alinea las tarjetas en fila ---- */
+.productos {
+  display: flex;
+  flex-direction: row;         /* Tarjetas en línea horizontal */
+  justify-content: center;     /* Centradas horizontalmente */
+  align-items: center;         /* Centradas verticalmente */
+  gap: 1.5rem;                 /* Separación entre tarjetas */
+  flex-wrap: wrap;             /* En pantallas chicas pasan de línea */
+}

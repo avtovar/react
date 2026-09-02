@@ -1,0 +1,152 @@
+/* ============================================================
+   ITEM.MODULE.CSS — CSS Module del componente Item (la tarjeta
+   del producto, el "exhibidor").
+
+   IMPORTANTE: al ser un CSS Module (.module.css), React genera
+   nombres de clase ÚNICOS para cada selector automáticamente
+   (ej: ".tarjeta" → "._tarjeta_1x3y2_1"). Así los estilos de
+   este componente quedan ENCAPSULADOS y NO afectan ni son
+   afectados por otros componentes de la app.
+
+   Se usa con: import styles from './Item.module.css'
+               className={styles.tarjeta}
+   ============================================================ */
+
+/* ---- Carta / tarjeta del producto ---- */
+.tarjeta {
+  display: flex;
+  flex-direction: column;   /* Imagen arriba, info abajo */
+  width: 300px;             /* Ancho fijo para que queden parejas */
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;         /* Mantiene la imagen dentro del borde redondeado */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease; /* Animación al pasar el mouse */
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);     /* La tarjeta "flota" hacia arriba */
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-fuerte);
+}
+
+/* ---- Contenedor cuadrado de la imagen ---- */
+.imagenContenedor {
+  aspect-ratio: 1;         /* Alto = ancho → cuadrado perfecto */
+  overflow: hidden;        /* Oculta el resto al hacer zoom en la imagen */
+  background: var(--superficie-elevada);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Recorta la imagen para llenar sin deformar */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.06);  /* Zoom suave de la foto al hacer hover */
+}
+
+/* ---- Bloque de información (nombre, precio, stock, acciones) ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  flex: 1;                 /* Ocupa el resto de la altura de la tarjeta */
+}
+
+.nombre {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.precio {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--acento-claro);   /* Precio en azul claro para destacarlo */
+}
+
+.stock {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---- Fila de acciones: botón "Añadir producto" + estrella ---- */
+.acciones {
+  margin-top: auto;        /* Empuja las acciones hacia abajo de la tarjeta */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- Botón "Añadir producto" ---- */
+.boton {
+  flex: 1;                 /* Ocupa todo el espacio disponible */
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--acento);   /* Azul eléctrico principal */
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.boton:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);  /* "Halo" suave alrededor */
+}
+
+/* ---- Botón contenedor de la estrella ---- */
+.botonFavorito {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--superficie-elevada);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botonFavorito:hover {
+  transform: scale(1.1);   /* La estrella crece levemente al pasar el mouse */
+  border-color: var(--favorito);
+}
+
+/* ---- La estrella VACÍA (no es favorito) ---- */
+.estrella {
+  width: 22px;
+  height: 22px;
+  fill: none;              /* Sin relleno: se ve el contorno */
+  stroke: var(--texto-suave);  /* Contorno gris azulado */
+  stroke-width: 1.5;
+  transition: fill 0.2s ease, stroke 0.2s ease, transform 0.2s ease;
+}
+
+/* ---- La estrella ACTIVA (es favorito) ---- */
+.estrellaActiva {
+  width: 22px;
+  height: 22px;
+  fill: var(--favorito);           /* Relleno dorado: "se rellena" al hacer clic */
+  stroke: var(--favorito);
+  filter: drop-shadow(0 0 6px rgba(255, 204, 51, 0.6));  /* Brillo dorado */
+  transform: scale(1.12);          /* Un poco más grande al activarse */
+  transition: fill 0.2s ease, stroke 0.2s ease, transform 0.2s ease;
+}
