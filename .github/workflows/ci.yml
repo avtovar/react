@@ -15,10 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Instala pnpm en el runner (clase_1 usa pnpm, no npm)
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: clase_1/package-lock.json
-      - run: npm ci
-      - run: npm run build
+          # Node 24: es el default del runner y no está deprecado (Node 20 sí)
+          node-version: 24
+          # El cache debe apuntar al lockfile REAL de clase_1: pnpm-lock.yaml
+          cache: pnpm
+          cache-dependency-path: clase_1/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
