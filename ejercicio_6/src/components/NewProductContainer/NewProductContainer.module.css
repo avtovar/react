@@ -1,0 +1,34 @@
+/* ============================================================
+   NEWPRODUCTCONTAINER.MODULE.CSS — Estilos de la sección
+   "Cargar producto" (el contenedor inteligente).
+   Se importa en NewProductContainer.jsx (CSS Module).
+   ============================================================ */
+
+.seccion {
+  text-align: left;
+  padding: 1rem 0 3rem;
+  max-width: 640px;          /* Ancho cómodo para leer un formulario */
+  margin-inline: auto;       /* Centrada horizontalmente */
+}
+
+.titulo {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  /* ↓ Mismo degradado que el hero para mantener la identidad visual */
+  background: linear-gradient(
+    90deg,
+    var(--texto),
+    var(--acento-claro) 50%,
+    var(--acento-brillante)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.descripcion {
+  margin: 0 0 1.5rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}

@@ -1,0 +1,143 @@
+/* ============================================================
+   PRODUCTFORM.MODULE.CSS — CSS Module del formulario de producto
+   (el componente presentacional que muestra los campos).
+   Reutiliza la paleta de colores definida en index.css.
+   ============================================================ */
+
+/* ---- Tarjeta del formulario ---- */
+.formulario {
+  display: grid;
+  gap: 1.1rem;                 /* Separación uniforme entre campos */
+  padding: 1.75rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+}
+
+/* ---- Cada campo (etiqueta + input) ---- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.etiqueta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+/* ---- Inputs de texto y número ---- */
+.input {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--fondo);
+  color: var(--texto);
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--acento);
+  box-shadow: 0 0 0 3px var(--acento-fondo);  /* "Halo" azul al enfocar */
+}
+
+.input::placeholder {
+  color: var(--texto-suave);
+  opacity: 0.7;
+}
+
+/* ---- Input de archivo (imagen) ---- */
+.inputArchivo {
+  padding: 0.6rem;
+  border: 1px dashed var(--borde);
+  border-radius: 10px;
+  background: var(--fondo);
+  color: var(--texto-suave);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.inputArchivo:hover {
+  border-color: var(--acento);
+}
+
+.inputArchivo::file-selector-button {
+  /* ↑ Estilo del botón interno "Elegir archivo" del navegador */
+  margin-right: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.inputArchivo::file-selector-button:hover {
+  background: var(--acento-claro);
+}
+
+/* ---- Texto con el nombre del archivo elegido ---- */
+.archivoElegido {
+  margin: -0.4rem 0 0;
+  font-size: 0.82rem;
+  color: var(--acento-claro);
+  word-break: break-all;
+}
+
+/* ---- Botón de envío ---- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+  padding: 0.85rem 1.25rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    opacity 0.2s ease;
+}
+
+.boton:hover:not(:disabled) {
+  background: var(--acento-claro);
+}
+
+.boton:active:not(:disabled) {
+  transform: scale(0.98);    /* Efecto de "presionado" al hacer clic */
+}
+
+/* ---- Estado DESHABILITADO (loading=true) ----
+     El botón se ve apagado y el cursor deja de ser "mano". */
+.boton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ---- Spinner de carga (gira mientras se sube la imagen) ---- */
+.spinner {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  animation: girar 0.9s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

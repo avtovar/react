@@ -1,0 +1,71 @@
+/* ============================================================
+   INDEX.CSS — Estilos GLOBALES de la aplicación
+   Se importa en main.jsx, así que aplica a TODA la app.
+   Aquí se define la "identidad visual": la paleta de colores
+   del e-commerce como variables CSS para reutilizarlas
+   en cualquier componente.
+   ============================================================ */
+
+:root {
+  /* ---- Variables CSS de la paleta (tema oscuro + azul eléctrico) ---- */
+  --fondo: #0b0f1a;            /* Fondo de la página (azul muy oscuro) */
+  --superficie: #12182b;       /* Superficies: header, footer, tarjetas */
+  --superficie-elevada: #1a2238; /* Capa más clara para hovers e imágenes */
+  --borde: #252f4a;            /* Color de los bordes */
+
+  --acento: #2f6bff;           /* Azul eléctrico principal (botones, logo) */
+  --acento-claro: #58a6ff;     /* Variante más clara (precios, enlace activo) */
+  --acento-brillante: #00e0ff; /* Glow del logo y gradientes */
+  --acento-fondo: rgba(47, 107, 255, 0.16);  /* Fondo suave tipo "pill" */
+  --acento-borde: rgba(47, 107, 255, 0.55);  /* Borde azulado */
+
+  --texto: #e9eef8;            /* Texto principal (casi blanco) */
+  --texto-suave: #93a0bd;      /* Texto secundario (gris azulado) */
+
+  /* Color extra para las estrellas de favoritos */
+  --favorito: #ffcc33;         /* Amarillo dorado para la estrella activa */
+
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.35);       /* Sombra suave */
+  --sombra-fuerte: 0 18px 40px rgba(0, 0, 0, 0.55); /* Sombra al hacer hover */
+
+  --sans: 'Segoe UI', system-ui, Roboto, sans-serif; /* Familia tipográfica */
+
+  color-scheme: dark;          /* El navegador usa la variante oscura */
+  font-family: var(--sans);    /* Fuente base de toda la app */
+  line-height: 1.5;            /* Interlineado cómodo para lectura */
+  color: var(--texto);
+  background: var(--fondo);
+  font-synthesis: none;        /* No sintetizar negritas/cursivas falsas */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;  /* Texto más nítido en macOS/Chromium */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  /* ---- Reset básico ---- */
+  box-sizing: border-box;
+  /* ↑ padding y border no se suman al ancho total del elemento */
+}
+
+body {
+  margin: 0;                   /* Quita el margen por defecto del navegador */
+  min-height: 100vh;           /* La página ocupa al menos toda la pantalla */
+}
+
+h1,
+h2 {
+  line-height: 1.15;           /* Títulos más compactos */
+  letter-spacing: -0.5px;      /* Ligero ajuste de espaciado */
+}
+
+a {
+  color: inherit;              /* Los enlaces heredan el color del texto */
+}
+
+img {
+  max-width: 100%;             /* Las imágenes nunca desbordan su contenedor */
+}
+
+button {
+  font: inherit;               /* Los botones heredan la fuente de la página */
+}

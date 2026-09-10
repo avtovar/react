@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "nombre": "Silvia",
+    "email": "silvia@talentalab.dev",
+    "puesto": "Product Owner",
+    "foto": "/images/avatar1.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Lautaro",
+    "email": "lautaro@talentalab.dev",
+    "puesto": "CEO",
+    "foto": "/images/avatar2.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Mateo",
+    "email": "mateo@talentalab.dev",
+    "puesto": "Analista Funcional",
+    "foto": "/images/avatar4.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Valentina",
+    "email": "valentina@talentalab.dev",
+    "puesto": "Diseñadora UI/UX",
+    "foto": "/images/avatar3.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Ali Tovar",
+    "email": "ali.v.tovar@gmail.com",
+    "puesto": "Frontend Developer",
+    "foto": "/images/avatar-ali.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Agustina",
+    "email": "agustina@talentalab.dev",
+    "puesto": "Backend Developer",
+    "foto": "/images/avatar5.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Franco",
+    "email": "franco@talentalab.dev",
+    "puesto": "QA Tester",
+    "foto": "/images/avatar6.png"
+  }
+]

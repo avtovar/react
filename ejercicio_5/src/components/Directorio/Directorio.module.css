@@ -1,0 +1,70 @@
+/* ============================================================
+   DIRECTORIO.MODULE.CSS — Estilos de la sección "Nuestro equipo"
+   Se importa en Directorio.jsx (CSS Module: las clases quedan
+   encapsuladas y no "chocan" con otras del proyecto).
+   ============================================================ */
+
+.seccion {
+  text-align: center;
+  padding: 2.5rem 0 1rem;   /* Espacio superior para separarlo del footer */
+}
+
+.titulo {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  /* ↓ Mismo degradado que el hero para mantener la identidad visual */
+  background: linear-gradient(
+    90deg,
+    var(--texto),
+    var(--acento-claro) 50%,
+    var(--acento-brillante)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Grilla de tarjetas ---- */
+.grilla {
+  display: grid;
+  /* ↑ Grid es ideal para listas de tarjetas: alineación perfecta en filas y columnas */
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  /* ↑ auto-fill + minmax: crea la mayor cantidad de columnas de 210px
+       que entren en el ancho disponible (totalmente responsive) */
+  gap: 1.5rem;             /* Separación entre tarjetas */
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Mensaje de carga ---- */
+.mensaje {
+  margin: 2rem auto;
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+  animation: pulsar 1.4s ease-in-out infinite;
+  /* ↑ Animación de pulso sutil para que el usuario note que "sigue trabajando" */
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---- Mensaje de error ---- */
+.mensajeError {
+  margin: 1.5rem auto;
+  max-width: 480px;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 71, 87, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 71, 87, 0.12);   /* Fondo rojo suave */
+  color: #ffb3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
