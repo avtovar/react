@@ -15,8 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Instala pnpm en el runner (clase_1 usa pnpm, no npm)
+      # Instala pnpm en el runner (clase_1 usa pnpm, no npm).
+      # La versión se fija EXPLÍCITA porque la acción busca package.json
+      # en la raíz del repo y allí no hay (clase_1/package.json no lo ve).
       - uses: pnpm/action-setup@v4
+        with:
+          version: 11.21.0
       - uses: actions/setup-node@v4
         with:
           # Node 24: es el default del runner y no está deprecado (Node 20 sí)
