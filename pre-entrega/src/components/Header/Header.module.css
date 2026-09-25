@@ -1,0 +1,55 @@
+/* ============================================================
+   HEADER.MODULE.CSS — CSS Module del encabezado de la app
+   (logo TechNova + barra de navegación).
+   Encapsula los estilos y reutiliza la paleta oscura de index.css.
+   ============================================================ */
+
+/* ---- Header ---- */
+.header {
+  position: sticky;      /* Se "pega" arriba al hacer scroll */
+  top: 0;
+  z-index: 10;           /* Por encima del resto del contenido */
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);  /* Línea divisoria inferior */
+  box-shadow: var(--sombra);
+}
+
+.contenido {
+  width: min(1120px, 100% - 2rem);
+  margin-inline: auto;             /* Centra el contenedor horizontalmente */
+  display: flex;                   /* Logo a la izquierda, nav a la derecha */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;             /* Padding vertical de 16px */
+}
+
+/* ---- Logo / marca ---- */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--texto);
+  text-decoration: none;      /* Quita el subrayado del enlace */
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.marcaLogo {
+  width: 32px;
+  height: 32px;
+  fill: var(--acento);          /* Color azul del rayo */
+  filter: drop-shadow(0 0 8px var(--acento-brillante));  /* Brillo cian */
+}
+
+.marcaNombre span {
+  color: var(--acento);         /* "Nova" resaltada en azul */
+}
+
+/* ---- Responsive: en celulares todo se apila y centra ---- */
+@media (max-width: 640px) {
+  .contenido {
+    flex-direction: column;   /* Logo arriba y nav debajo */
+    align-items: stretch;
+  }
+}

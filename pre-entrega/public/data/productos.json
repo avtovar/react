@@ -1,0 +1,65 @@
+[
+  {
+    "id": "auriculares-quantum-pro",
+    "nombre": "Auriculares Quantum Pro",
+    "precio": 149999,
+    "stock": 12,
+    "descripcion": "Auriculares inalámbricos con cancelación activa de ruido, graves profundos y 30 horas de batería. Ideales para escuchar música o jugar sin interrupciones.",
+    "categoria": "Audio",
+    "imagen": "/images/productos/auriculares.jpg"
+  },
+  {
+    "id": "smartwatch-pulse-x",
+    "nombre": "Smartwatch Pulse X",
+    "precio": 179999,
+    "stock": 8,
+    "descripcion": "Smartwatch con pantalla AMOLED, sensor de ritmo cardíaco, GPS integrado y resistencia al agua. Controla tu actividad física y tus notificaciones desde la muñeca.",
+    "categoria": "Wearables",
+    "imagen": "/images/productos/smartwatch.jpg"
+  },
+  {
+    "id": "parlante-bluetooth-boom",
+    "nombre": "Parlante Bluetooth Boom",
+    "precio": 89999,
+    "stock": 20,
+    "descripcion": "Parlante portátil con sonido 360°, graves potentes y batería recargable de 12 horas. Llevá la fiesta a donde quieras con su diseño resistente al agua.",
+    "categoria": "Audio",
+    "imagen": "/images/productos/parlante.jpg"
+  },
+  {
+    "id": "teclado-mecanico-rgb",
+    "nombre": "Teclado Mecánico RGB",
+    "precio": 119999,
+    "stock": 15,
+    "descripcion": "Teclado mecánico con switches táctiles, retroiluminación RGB personalizable y teclas anti-ghosting. La herramienta definitiva para gamers y programadores.",
+    "categoria": "Periféricos",
+    "imagen": "/images/productos/teclado.jpg"
+  },
+  {
+    "id": "monitor-curvo-27",
+    "nombre": "Monitor Curvo 27\"",
+    "precio": 429999,
+    "stock": 7,
+    "descripcion": "Monitor curvo de 27 pulgadas con resolución QHD, tasa de refresco de 144 Hz y panel VA. Sumergite en tus juegos con una experiencia visual envolvente.",
+    "categoria": "Monitores",
+    "imagen": "https://picsum.photos/seed/technova-monitor/400/300"
+  },
+  {
+    "id": "notebook-ultra-x15",
+    "nombre": "Notebook Ultra X15",
+    "precio": 1299999,
+    "stock": 5,
+    "descripcion": "Notebook ultradelgada con procesador de última generación, 16 GB de RAM y SSD de 512 GB. Máxima potencia para trabajar, estudiar y crear en cualquier lugar.",
+    "categoria": "Computación",
+    "imagen": "https://picsum.photos/seed/technova-notebook/400/300"
+  },
+  {
+    "id": "mouse-inalambrico-pro",
+    "nombre": "Mouse Inalámbrico Pro",
+    "precio": 59999,
+    "stock": 18,
+    "descripcion": "Mouse gamer inalámbrico con sensor de alta precisión, 6 botones programables y hasta 90 horas de batería. Cero latencia, pura velocidad.",
+    "categoria": "Periféricos",
+    "imagen": "https://picsum.photos/seed/technova-mouse/400/300"
+  }
+]

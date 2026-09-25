@@ -1,0 +1,13 @@
+/* ============================================================
+   ITEMLIST.MODULE.CSS — CSS Module de la grilla de productos
+   Contiene las tarjetas <Item /> en una grilla responsive.
+   ============================================================ */
+
+.grilla {
+  display: grid;
+  /* ↑ Grid es ideal para listas de tarjetas: alineación perfecta */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* ↑ auto-fill + minmax: crea la mayor cantidad de columnas de 240px
+       que entren en el ancho disponible (totalmente responsive) */
+  gap: 1.5rem;             /* Separación entre tarjetas */
+}

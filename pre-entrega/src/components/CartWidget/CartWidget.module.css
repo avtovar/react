@@ -1,0 +1,68 @@
+/* ============================================================
+   CARTWIDGET.MODULE.CSS — CSS Module del ícono + contador del carrito
+   Encapsula los estilos del indicador que vive en el NavBar.
+   ============================================================ */
+
+/* ---- Enlace del carrito (estilo "pill" como el resto del nav) ---- */
+.enlaceCarrito {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;          /* Totalmente redondeado */
+  border: 1px solid var(--acento-borde);  /* Borde azulado para destacarlo */
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;            /* El contador se posiciona sobre el ícono */
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.enlaceCarrito:hover {
+  color: var(--texto);
+  background: var(--acento-fondo);  /* Fondo azul suave al hacer hover */
+  border-color: var(--acento);
+}
+
+/* ---- Ícono del carrito ---- */
+.icono {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;   /* El ícono toma el color del texto del enlace */
+}
+
+.texto {
+  /* ↑ Texto "Carrito" (se oculta en pantallas muy chicas) */
+}
+
+/* ---- Contador / badge numérico ---- */
+.contador {
+  /* ↑ El "globito" rojo con el número de productos. Se posiciona absoluto
+     sobre la esquina del enlace para que se note de un vistazo. */
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #ff3b5c;             /* Rojo intenso = atención inmediata */
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(255, 59, 92, 0.5);
+}
+
+/* ---- Responsive: en celulares se esconde la palabra, queda solo el ícono ---- */
+@media (max-width: 640px) {
+  .texto {
+    display: none;
+  }
+}

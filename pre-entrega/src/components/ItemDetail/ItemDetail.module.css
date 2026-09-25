@@ -1,0 +1,181 @@
+/* ============================================================
+   ITEMDETAIL.MODULE.CSS — CSS Module de la vista de detalle
+   (ruta /producto/:id). Reutiliza la paleta oscura de TechNova.
+   ============================================================ */
+
+/* ---- Vista de detalle: 2 columnas (imagen | info) ---- */
+.detalle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* Mitad y mitad en pantallas grandes */
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+/* ---- Imagen grande del producto ---- */
+.imagenContenedor {
+  aspect-ratio: 1;          /* Cuadrado perfecto */
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--superficie-elevada);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Llena sin deformar */
+  display: block;
+}
+
+/* ---- Columna de información ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.categoria {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--acento-claro);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nombre {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--texto);
+}
+
+.precio {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--acento-claro);
+}
+
+.descripcion {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.stock {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---- Bloque de compra: selector + botón ---- */
+.comprar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Selector de cantidad ---- */
+.selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--superficie-elevada);
+}
+
+.botonSelector {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: var(--acento-claro);
+  font-size: 1.3rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botonSelector:hover {
+  background: var(--acento-fondo);
+}
+
+.cantidad {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--texto);
+}
+
+/* ---- Botón principal "Agregar al carrito" ---- */
+.botonAgregar {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.botonAgregar:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);
+  transform: translateY(-2px);
+}
+
+/* ---- Enlaces secundarios ---- */
+.enlaces {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.enlace {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.enlace:hover {
+  color: var(--texto);
+}
+
+.enlaceCarrito {
+  color: var(--acento-claro);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.enlaceCarrito:hover {
+  color: var(--acento-brillante);
+  text-decoration: underline;
+}
+
+/* ---- Responsive: en celulares se apila en 1 columna ---- */
+@media (max-width: 720px) {
+  .detalle {
+    grid-template-columns: 1fr;   /* Una sola columna */
+    gap: 1.5rem;
+  }
+}

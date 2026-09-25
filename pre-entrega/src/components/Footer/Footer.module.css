@@ -1,0 +1,95 @@
+/* ============================================================
+   FOOTER.MODULE.CSS — CSS Module del pie de página
+   Muestra la información de la empresa y el Directorio del equipo
+   (tarjetas de contacto). Reutiliza la paleta oscura de index.css.
+   ============================================================ */
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--superficie);
+  border-top: 1px solid var(--borde);
+  padding-block: 1.5rem 2rem;   /* más aire abajo */
+}
+
+/* ---- Contenedor centrado de ancho máximo ---- */
+.contenido {
+  width: min(1120px, 100% - 2rem);
+  margin-inline: auto;
+  display: grid;
+  /* ↑ Grid en 2 columnas: info de la empresa (izq.) + Directorio (der.) */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ---- Bloque de la empresa ---- */
+.empresa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-self: start;      /* No se estira; queda arriba */
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.marcaLogo {
+  width: 30px;
+  height: 30px;
+  fill: var(--acento);
+  filter: drop-shadow(0 0 8px var(--acento-brillante));
+}
+
+.marcaNombre span {
+  color: var(--acento);
+}
+
+.texto {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  max-width: 45ch;
+}
+
+.datos {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+/* ---- Franja legal (copyright) ---- */
+.legal {
+  width: min(1120px, 100% - 2rem);
+  margin: 2rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legalTexto {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .legal {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .empresa {
+    align-items: center;
+    text-align: center;
+  }
+}

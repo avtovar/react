@@ -1,0 +1,135 @@
+/* ============================================================
+   ITEM.MODULE.CSS — CSS Module del componente Item (la tarjeta
+   del producto). Encapsula los estilos de cada tarjeta del
+   catálogo reutilizando la paleta oscura de TechNova.
+   ============================================================ */
+
+/* ---- Tarjeta del producto ---- */
+.tarjeta {
+  display: flex;
+  flex-direction: column;   /* Imagen arriba, info abajo */
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;         /* Mantiene la imagen dentro del borde redondeado */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);     /* La tarjeta "flota" hacia arriba */
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-fuerte);
+}
+
+/* ---- Enlace que envuelve la imagen ---- */
+.enlaceImagen {
+  display: block;           /* El enlace ocupa todo el ancho */
+  text-decoration: none;
+}
+
+/* ---- Contenedor cuadrado de la imagen ---- */
+.imagenContenedor {
+  aspect-ratio: 1;         /* Alto = ancho → cuadrado perfecto */
+  overflow: hidden;        /* Oculta el resto al hacer zoom */
+  background: var(--superficie-elevada);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Recorta para llenar sin deformar */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.06);  /* Zoom suave de la imagen al hacer hover */
+}
+
+/* ---- Bloque de información ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.25rem;
+  flex: 1;                 /* Ocupa el resto de la altura de la tarjeta */
+}
+
+.nombre {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.categoria {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--acento-claro);   /* Categoría en azul claro */
+}
+
+.precio {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--acento-claro);   /* Precio en azul claro para destacarlo */
+}
+
+.stock {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---- Fila de acciones ---- */
+.acciones {
+  margin-top: auto;        /* Empuja las acciones hacia abajo */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- Botón / enlace "Ver detalle" ---- */
+.botonDetalle {
+  flex: 1;                 /* Ocupa todo el espacio disponible */
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  background: var(--acento);   /* Azul eléctrico principal */
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.botonDetalle:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);  /* "Halo" suave alrededor */
+}
+
+/* ---- Botón "Agregar" (atajo al carrito) ---- */
+.botonAgregar {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--acento-borde);
+  border-radius: 10px;
+  background: var(--superficie-elevada);
+  color: var(--acento-claro);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.botonAgregar:hover {
+  border-color: var(--acento);
+  background: var(--acento-fondo);
+  transform: scale(1.05);
+}

@@ -1,0 +1,237 @@
+/* ============================================================
+   CARTCONTAINER.MODULE.CSS — CSS Module de la vista /carrito
+   Lista de ítems + resumen del pedido (tema oscuro TechNova).
+   ============================================================ */
+
+/* ---- Sección general ---- */
+.seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--texto);
+}
+
+/* ---- Grilla: lista (izq.) + resumen (der.) ---- */
+.grilla {
+  display: grid;
+  grid-template-columns: 1fr 320px;   /* Lista flexible + resumen fijo */
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ---- Lista de ítems ---- */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ---- Fila de un producto ---- */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+}
+
+.itemImagenEnlace {
+  flex-shrink: 0;             /* La imagen no se encoge */
+  display: block;
+  width: 86px;
+  height: 86px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--superficie-elevada);
+}
+
+.itemImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* Llena sin deformar */
+  display: block;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.itemNombre {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.itemPrecio {
+  margin: 0;
+  color: var(--acento-claro);
+  font-weight: 700;
+}
+
+.itemCantidad {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.itemSubtotal {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--texto);
+  font-weight: 700;
+}
+
+/* ---- Botón "Quitar" por ítem ---- */
+.botonQuitar {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(255, 71, 87, 0.5);
+  border-radius: 10px;
+  background: rgba(255, 71, 87, 0.12);
+  color: #ffb3b8;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botonQuitar:hover {
+  background: rgba(255, 71, 87, 0.25);
+  border-color: #ff4757;
+}
+
+/* ---- Resumen ---- */
+.resumen {
+  position: sticky;           /* El resumen "viaja" con el scroll */
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+}
+
+.resumenTitulo {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--texto);
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.filaTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--borde);
+  padding-top: 0.75rem;
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+.filaTotal strong {
+  font-size: 1.4rem;
+  color: var(--acento-claro);
+}
+
+/* ---- Botón "Vaciar carrito" ---- */
+.botonVaciar {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 71, 87, 0.5);
+  border-radius: 10px;
+  background: transparent;
+  color: #ffb3b8;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.botonVaciar:hover {
+  background: rgba(255, 71, 87, 0.15);
+  border-color: #ff4757;
+}
+
+/* ---- Botón "Seguir comprando" ---- */
+.botonSeguir {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.botonSeguir:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);
+}
+
+/* ---- Estado "carrito vacío" ---- */
+.vacio {
+  text-align: center;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.textoVacio {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--texto-suave);
+}
+
+.botonIr {
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  background: var(--acento);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.botonIr:hover {
+  background: var(--acento-claro);
+  box-shadow: 0 0 0 4px var(--acento-fondo);
+}
+
+/* ---- Responsive: en celulares el resumen baja ---- */
+@media (max-width: 820px) {
+  .grilla {
+    grid-template-columns: 1fr;   /* Una sola columna */
+  }
+
+  .resumen {
+    position: static;             /* El resumen deja de ser sticky */
+  }
+}

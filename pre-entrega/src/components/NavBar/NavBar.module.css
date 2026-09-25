@@ -1,0 +1,48 @@
+/* ============================================================
+   NAVBAR.MODULE.CSS — CSS Module de la barra de navegación
+   Encapsula los estilos de los enlaces (Inicio / Productos)
+   usando la paleta oscura de TechNova.
+   ============================================================ */
+
+/* ---- Barra de navegación ---- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;             /* Los enlaces pueden ocupar 2 líneas */
+}
+
+/* ---- Enlace de navegación (NavLink) ---- */
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;        /* Borde totalmente redondeado ("pill") */
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;  /* Animación suave al pasar el mouse */
+}
+
+.enlace:hover {
+  color: var(--texto);
+  background: var(--superficie-elevada);  /* Fondo más claro al hacer hover */
+}
+
+/* ---- Enlace ACTIVO (la ruta actual) ---- */
+.activo {
+  /* ↑ NavLink aplica isActive=true cuando la URL coincide con su `to`.
+     Esta clase deja pintado el enlace de la sección actual. */
+  color: var(--acento-claro);
+  background: var(--acento-fondo);        /* Fondo azul suave */
+}
+
+/* ---- Responsive: en celulares la nav se centra ---- */
+@media (max-width: 640px) {
+  .nav {
+    justify-content: center;  /* Nav centrada */
+  }
+}

@@ -1,0 +1,27 @@
+/* ============================================================
+   LAYOUT.MODULE.CSS — CSS Module del "esqueleto" de la página
+   (Header arriba, main al centro, Footer abajo).
+   Encapsula los estilos con CSS Modules y reutiliza la paleta
+   oscura de TechNova definida en src/index.css.
+   ============================================================ */
+
+/* ---- Contenedor general de la página ---- */
+.layout {
+  display: flex;
+  flex-direction: column;  /* Apila: Header (arriba), main (centro), Footer (abajo) */
+  min-height: 100vh;       /* Ocupa toda la altura del viewport */
+}
+
+/* ---- Contenedor centrado de ancho máximo ---- */
+.container {
+  width: min(1120px, 100% - 2rem);
+  /* ↑ min(): el ancho es 1120px o el 100% menos 2rem, lo que sea menor */
+  margin-inline: auto;      /* Centra el contenedor horizontalmente */
+}
+
+/* ---- Contenido principal ---- */
+.main {
+  flex: 1;               /* Se expande para ocupar todo el espacio libre,
+                            empujando así al Footer hacia abajo */
+  padding-block: 3rem;
+}

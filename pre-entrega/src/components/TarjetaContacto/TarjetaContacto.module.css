@@ -1,0 +1,85 @@
+/* ============================================================
+   TARJETACONTACTO.MODULE.CSS — CSS Module de la tarjeta de
+   contacto (el componente "presentacional" que muestra los
+   datos de una persona del equipo).
+
+   Al ser un CSS Module (.module.css), las clases quedan
+   encapsuladas y no chocan con otras del proyecto.
+   Reutiliza la misma identidad visual de las tarjetas de
+   producto (ver Item.module.css).
+   ============================================================ */
+
+/* ---- Tarjeta de contacto ---- */
+.tarjeta {
+  display: flex;
+  flex-direction: column;   /* Foto arriba, info abajo */
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;         /* Mantiene la foto dentro del borde redondeado */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease; /* Animación al pasar el mouse */
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);     /* La tarjeta "flota" hacia arriba */
+  border-color: var(--acento-borde);
+  box-shadow: var(--sombra-fuerte);
+}
+
+/* ---- Contenedor cuadrado de la foto ---- */
+.imagenContenedor {
+  aspect-ratio: 1;         /* Alto = ancho → cuadrado perfecto */
+  overflow: hidden;        /* Oculta el resto al hacer zoom en la foto */
+  background: var(--superficie-elevada);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Recorta para llenar sin deformar */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.06);  /* Zoom suave de la foto al hacer hover */
+}
+
+/* ---- Bloque de información ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.nombre {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.puesto {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--acento-claro);   /* Puesto en azul claro para destacarlo */
+}
+
+.email {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  text-decoration: none;
+  word-break: break-all;        /* Evita que un email largo desborde la tarjeta */
+  transition: color 0.2s ease;
+}
+
+.email:hover {
+  color: var(--acento-brillante);  /* El email brilla al pasar el mouse */
+  text-decoration: underline;
+}

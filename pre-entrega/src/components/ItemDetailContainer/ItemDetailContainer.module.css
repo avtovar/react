@@ -1,0 +1,47 @@
+/* ============================================================
+   ITEMDETAILCONTAINER.MODULE.CSS — CSS Module del contenedor
+   de detalle (estados de carga/error de la vista /producto/:id).
+   ============================================================ */
+
+/* ---- Mensaje de carga ---- */
+.mensaje {
+  margin: 2rem auto;
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+  animation: pulsar 1.4s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---- Mensaje de error ---- */
+.mensajeError {
+  margin: 1.5rem auto;
+  max-width: 480px;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 71, 87, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 71, 87, 0.12);
+  color: #ffb3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ---- Enlace para volver al catálogo ---- */
+.enlaceVolver {
+  color: var(--acento-claro);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.enlaceVolver:hover {
+  text-decoration: underline;
+}
