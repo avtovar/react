@@ -1,0 +1,32 @@
+/* ============================================================
+   APP.CSS — Estilos del componente principal (App)
+   Se importa en App.jsx: aplica SOLO a lo que renderiza ese componente.
+   Usa las variables de color definidas en index.css (--acento-claro,
+   --texto-suave) para mantener la identidad visual del e-commerce.
+   ⚠️ Si ves que estos estilos no aparecen, revisá que App.jsx
+   haga `import './App.css'`.
+   ============================================================ */
+
+.app {
+  /* ↑ Contenedor principal: centrado y con margen interno */
+  max-width: 60rem;
+  /* ↑ Limita el ancho para que el contenido no se estire en pantallas grandes */
+  margin: 0 auto;
+  /* ↑ Centra el contenedor horizontalmente (auto a izquierda y derecha) */
+  padding: 4rem 1.5rem;
+  /* ↑ Espacio interno alrededor del contenido */
+  text-align: center;
+  /* ↑ Centra el texto dentro del contenedor */
+}
+
+.app h1 {
+  /* ↑ Título principal dentro de .app */
+  color: var(--acento-claro);
+  /* ↑ Usa la variable --acento-claro (azul claro) de index.css */
+}
+
+.app p {
+  /* ↑ Párrafo de descripción */
+  color: var(--texto-suave);
+  /* ↑ Usa la variable --texto-suave (gris azulado) para texto secundario */
+}
